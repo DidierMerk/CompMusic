@@ -5,7 +5,6 @@ date: '2022-02-16'
 output: 
   flexdashboard::flex_dashboard:
     storyboard: true
-    theme: plotly
 ---
 
 ### Frame 1
@@ -22,3 +21,11 @@ output:
 
 ```{r}
 ```
+
+### Frame 4
+
+
+
+### Frame 5
+
+### Frame 6

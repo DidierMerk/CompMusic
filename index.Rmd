@@ -15,20 +15,46 @@ Imagine a setting where you have just had your family Christmas dinner. You all 
 
 In 2019 researchers already found a difference in the way people listen to music throughout the year (Park et al., 2019). The most famous example of a song that is mainly played in certain times of the year is, of course, [All I Want For Christmas Is You](https://www.youtube.com/watch?v=aAkMkVFwAoo) by Mariah Carey. When taking a look at the amount of people that use the search term ‘All I Want For Christmas’ on Google throughout the past 5 year, it is clearly seen that in specific parts of the year the popularity spikes [[1]](https://trends.google.com/trends/explore?date=today%205-y&geo=FR&q=all%20i%20want%20for%20christmas). And although the reasons may be clear for Mariah Carey's tracks, there is no straightforward explanation why we listen to certain songs more in the summer and others in the winter.
 
-In this storyboard, there will be a look taken into what makes a specific track a ‘summer song’, and what makes a track a ‘winter song’. This will be done by comparing two official Spotify created playlists. The first playlist is called *Summer '22*, and the other playlist is called *The Winter Chill*. Both of the playlist can be previewed and played on the right. 
+In this storyboard, there will be taken a look into what makes a specific track a ‘summer song’, and what makes a track a ‘winter song’. This will be done by comparing two official Spotify created playlists. The first playlist is called *Summer '22*, and the other playlist is called *The Winter Chill*. Both of the playlist can be previewed and played on the right. 
+
+These playlist have been chosen because they are both made by the official Spotify account. This means that they are generally considered to be a good representation of what users think are summer and winter songs respectively. The fact they are made by Spotify also means that there is less personal bias in both the playlists, meaning they are very useful to do general research on. 
+
+In this research, the Spotify API will be used to try and discover what the specific differences are between summer and winter songs and which features are more present in one or the other category. The expectations are that summer songs are more 'happy' and faster paced, while the winter songs are supposed to be slower, more acoustic and less happy.
 
 ---------------------------------------
 
-<iframe src="https://open.spotify.com/embed/playlist/4xnBi0S21rFHhhK0iGHpiS?utm_source=generator" width="100%" height="380" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-</iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcx1szy2g67M?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-### Visualizations
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcx1szy2g67M?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-Column 1
+
+### **Happiness** - Looking into whether summer songs are happier than winter songs
+
+```{r}
+library(tidyverse)
+library(spotifyr)
+
+summer <- get_playlist_audio_features("", "37i9dQZF1DXcx1szy2g67M")
+winter <- get_playlist_audio_features("", "37i9dQZF1DX5tKipVBa9Hc")
+
+seasons <-
+  bind_rows(
+    summer %>% mutate(Category = "Summer"),
+    winter %>% mutate(Category = "Winter")
+  )
+
+ggplot(seasons, aes(x = valence, y = energy, color=Category)) + geom_point() + labs(title="The happiness of a track", subtitle="Defined by 'valence' and 'energy'", x="Valence", y="Energy") + theme(plot.title = element_text(hjust=0.5), plot.subtitle = element_text(hjust=0.5, size=8))
+```
 
 ---------------------------------------
 
-Column 2
+**Are summer songs happier?**
+
+As said before, many people would describe summer music as being happy and uplifting. Music that you could dance to or sing along with. While winter music would be said to be more calm and melancholic. To test this, the Spotify API is used, which can measure many features of a track, such as it's loudness, instrumentalness or danceability. 
+
+The question now is, how do we measure the 'happiness' of a song? One of the spotify measurable audio features is 'energy', which looks at the intensity or activity of a song. Another feature is 'valence', which is described as a measure of musical positiveness, where a high valence means a more happy or euphoric track.
+
+In the figure on the left we can see for every track in the playlist where they score in terms of energy and valence. It is visible that the blue winter songs, on average, score a lot lower on both energy and valence than the summer songs. This means that a song with a high energy and/or valence is more likely to be considered a summer song! 
 
 ### Visualizations
 

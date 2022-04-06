@@ -15,7 +15,7 @@ Imagine a setting where you have just had your family Christmas dinner. You all 
 
 In 2019 researchers already found a difference in the way people listen to music throughout the year (Park et al., 2019). The most famous example of a song that is mainly played in certain times of the year is, of course, [All I Want For Christmas Is You](https://www.youtube.com/watch?v=aAkMkVFwAoo) by Mariah Carey. When taking a look at the amount of people that use the search term ‘All I Want For Christmas’ on Google throughout the past 5 year, it is clearly seen that in specific parts of the year the popularity spikes [[1]](https://trends.google.com/trends/explore?date=today%205-y&geo=FR&q=all%20i%20want%20for%20christmas). And although the reasons may be clear for Mariah Carey's tracks, there is no straightforward explanation why we listen to certain songs more in the summer and others in the winter.
 
-In this storyboard, there will be taken a look into what makes a specific track a ‘summer song’, and what makes a track a ‘winter song’. This will be done by comparing two official Spotify created playlists. The first playlist is called *Summer '22*, and the other playlist is called *The Winter Chill*. Both of the playlist can be previewed and played on the right. 
+In this storyboard, there will be taken a look into what makes a specific track a ‘summer song’, and what makes a track a ‘winter song’. This will be done by comparing two official Spotify created playlists. The first playlist is called *Summer '22*, and the other playlist is called *The Winter Chill*, which both consist of 100 songs. They can be previewed and played on the right. 
 
 These playlist have been chosen because they are both made by the official Spotify account. This means that they are generally considered to be a good representation of what users think are summer and winter songs respectively. The fact they are made by Spotify also means that there is less personal bias in both the playlists, meaning they are very useful to do general research on. 
 
@@ -56,13 +56,36 @@ The question now is, how do we measure the 'happiness' of a song? One of the spo
 
 In the figure on the left we can see for every track in the playlist where they score in terms of energy and valence. It is visible that the blue winter songs, on average, score a lot lower on both energy and valence than the summer songs. This means that a song with a high energy and/or valence is more likely to be considered a summer song! 
 
-### Visualizations
+### **Acousticness** - Are winter songs typically more acoustic than summer songs?
 
-Column 1
+```{r}
+library(tidyverse)
+library(spotifyr)
+
+summer <- get_playlist_audio_features("", "37i9dQZF1DXcx1szy2g67M")
+winter <- get_playlist_audio_features("", "37i9dQZF1DX5tKipVBa9Hc")
+
+seasons <-
+  bind_rows(
+    summer %>% mutate(Category = "Summer"),
+    winter %>% mutate(Category = "Winter")
+  )
+
+ggplot(seasons, aes(x=acousticness, color=Category, fill=Category)) + geom_histogram(binwidth=0.1, position="identity", alpha=0.5) + labs(title="Acousticness in tracks", x="Acousticness", y="Count") + theme(plot.title = element_text(hjust = 0.5))
+
+```
 
 ---------------------------------------
 
-Column 2
+**Acousticness of the playlists**
+
+When picturing a song that suits the winter, usually people picture a more melancholic song, with an acoustic guitar or piano and slow vocals. A feature that best measures this, is the acousticness feature, which measures to what extent a certain track is acoustic or not. 
+
+On the left we can see the acousticness of both the summer playlist and the winter playlist compared to each other in a single histogram. 
+
+On the x-axis the acousticness scale is displayed, and on the y-axis the amount of times that that acousticness is found in the summer or winter playlist respectively. 
+
+It is noticeable that for winter songs the acousticness is very diverse and can range anywhere from 0 to 1. On average however, winter songs are more acoustic than summer songs. These are mainly very non-acoustic, with over 80 of the 100 tracks having less than 0.25 on the acousticness-scale.
 
 ### Visualizations
 

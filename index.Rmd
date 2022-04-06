@@ -7,28 +7,27 @@ output:
     storyboard: true
 ---
 
-### Frame 1
+### The music of my life
 
-```{r}
-```
+Introductionary text
 
-### Frame 2
+### Visualisations
 
-```{r}
-```
+Testing visualisations later
 
-### Frame 3
+### Visualisations 
 
-```{r}
-```
+Testing visualisations later
 
-### Frame 4
+### Visualisations
 
 I think this will works
 
 
-### Frame 5
+### Discussion
 
-### Frame 6
+Blablabla
 
-Literature
+### Literature
+
+Blablabla

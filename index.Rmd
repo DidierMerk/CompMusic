@@ -7,27 +7,58 @@ output:
     storyboard: true
 ---
 
-### The music of my life
+### **Seasonal Music** - A research into what makes some songs more suited to the summer, and others to the winter.
 
-Introductionary text
+<center> <h1>Seasonal Music</h1> </center>
 
-### Visualisations
+Imagine a setting where you have just had your family Christmas dinner. You all sit together around the fireplace drinking a hot chocolate, when your father suddenly turns on [Despacito by Luis Fonsi]( https://open.spotify.com/track/6habFhsOp2NvshLv26DqMb?si=c8c5cb23858a46d1). Although it is just a song like any other, the consensus will be that it is absolutely not a song that fits the setting. 
 
-Testing visualisations later
+In 2019 researchers already found a difference in the way people listen to music throughout the year (Park et al., 2019). The most famous example of a song that is mainly played in certain times of the year is, of course, [All I Want For Christmas Is You](https://www.youtube.com/watch?v=aAkMkVFwAoo) by Mariah Carey. When taking a look at the amount of people that use the search term ‘All I Want For Christmas’ on Google throughout the past 5 year, it is clearly seen that in specific parts of the year the popularity spikes [[1]](https://trends.google.com/trends/explore?date=today%205-y&geo=FR&q=all%20i%20want%20for%20christmas). And although the reasons may be clear for Mariah Carey's tracks, there is no straightforward explanation why we listen to certain songs more in the summer and others in the winter.
 
-### Visualisations 
+In this storyboard, there will be a look taken into what makes a specific track a ‘summer song’, and what makes a track a ‘winter song’. This will be done by comparing two official Spotify created playlists. The first playlist is called *Summer '22*, and the other playlist is called *The Winter Chill*. Both of the playlist can be previewed and played on the right. 
 
-Testing visualisations later
+---------------------------------------
 
-### Visualisations
+<iframe src="https://open.spotify.com/embed/playlist/4xnBi0S21rFHhhK0iGHpiS?utm_source=generator" width="100%" height="380" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+</iframe>
 
-I think this will works
+### Visualizations
 
+Column 1
+
+---------------------------------------
+
+Column 2
+
+### Visualizations
+
+Column 1
+
+---------------------------------------
+
+Column 2
+
+### Visualizations
+
+Column 1
+
+---------------------------------------
+
+Column 2
 
 ### Discussion
 
-Blablabla
+Column 1
+
+---------------------------------------
+
+Column 2
 
 ### Literature
 
-Blablabla
+Column 1
+
+---------------------------------------
+
+Column 2
+

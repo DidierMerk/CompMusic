@@ -19,7 +19,9 @@ In this storyboard, there will be taken a look into what makes a specific track 
 
 These playlist have been chosen because they are both made by the official Spotify account. This means that they are generally considered to be a good representation of what users think are summer and winter songs respectively. The fact they are made by Spotify also means that there is less personal bias in both the playlists, meaning they are very useful to do general research on. 
 
-In this research, the Spotify API will be used to try and discover what the specific differences are between summer and winter songs and which features are more present in one or the other category. The expectations are that summer songs are more 'happy' and faster paced, while the winter songs are supposed to be slower, more acoustic and less happy.
+In this research, the Spotify API will be used to try and discover what the specific differences are between summer and winter songs and which features are more present in one or the other category. BBC music journalist Greg Kot wrote in 2014 that summer hits of the last decades are united by the fact that _"they're energetic and at least sound upbeat, even when they're not."_. The expectations are that songs that would fall under the summer category are more 'happy', and have a higher tempo. Next to that it is expected they also have a high danceability, since the summer is also the season of the festivals. 
+
+Winter songs are hypothesized to be slower, and more melancholic (less happy) than summer songs. This because in the winter people tend to be in a worse mindset due to multiple factors (Lam et al., 2001), possibly leaving them less open to happy, cheerful music. For this reason winter music is also expected to be more acoustic and instrumental.
 
 ---------------------------------------
 
@@ -62,7 +64,7 @@ In the figure on the left we can see for every track in the playlist where they 
 
 ---------------------------------------
 
-_note:_ The goal was to make this page interactive, and let the user select which feature to show on this page. This worked, but took very long computationally, which is why it was decided to just place all histograms in picture format next to each other on this page. 
+_Note_: The goal was to make this page interactive, and let the user select which feature to show on this page. This worked, but took very long computationally, which is why it was decided to just place all histograms in picture format next to each other on this page. 
 
 **Acousticness**
 
@@ -153,6 +155,23 @@ Column 2
 ### **Classifier** - Can we use the data to make predictions about songs and whether they are summer or winter tracks?
 
 ![](https://i.imgur.com/itPcQoD.png)
+
+---------------------------------------
+
+The question that now remains is, is there something we, or a computer to be more precise, can learn from all the previous data? 
+
+The histograms in the beginning and the timbre coefficients showed that there is a measurable distance between tracks from the summer playlist, and tracks from the winter playlist. As a result, 3 features have been chosen to train a K-Nearest Neighbour classifying algorithm on:
+
+- Acousticness
+- Valence
+- Energy
+
+In the visualization the performance of the K-Nearest Neighbour algorithm is displayed. After running a 5-fold cross validation, the accuracy was **81%**. This means that based on these two playlists, it is actually possible to make a accurate distinction between summer and winter tracks, based on the three chosen features. 
+
+### Discussion
+
+**Conclusion**
+
 
 ---------------------------------------
 

@@ -56,29 +56,13 @@ The question now is, how do we measure the 'happiness' of a song? One of the spo
 
 In the figure on the left we can see for every track in the playlist where they score in terms of energy and valence. It is visible that the blue winter songs, on average, score a lot lower on both energy and valence than the summer songs. This means that a song with a high energy and/or valence is more likely to be considered a summer song! 
 
-### **Acousticness** - Are winter songs typically more acoustic than summer songs?
+### **Acousticness, Keys and Tempi** - Which other differences can we find between summer and winter songs?
 
-```{r}
-library(tidyverse)
-library(spotifyr)
-
-summer <- get_playlist_audio_features("", "37i9dQZF1DXcx1szy2g67M")
-winter <- get_playlist_audio_features("", "37i9dQZF1DX5tKipVBa9Hc")
-
-seasons <-
-  bind_rows(
-    summer %>% mutate(Category = "Summer"),
-    winter %>% mutate(Category = "Winter")
-  )
-
-ggplot(seasons, aes(x=acousticness, color=Category, fill=Category)) + geom_histogram(binwidth=0.1, position="identity", alpha=0.5) + labs(title="Acousticness in tracks", x="Acousticness", y="Count") + theme(plot.title = element_text(hjust = 0.5))
-
-```
+![](https://i.imgur.com/vMg9hLm.png)
 
 ---------------------------------------
 
-**Acousticness of the playlists**
-
+**Acousticness**
 When picturing a song that suits the winter, usually people picture a more melancholic song, with an acoustic guitar or piano and slow vocals. A feature that best measures this, is the acousticness feature, which measures to what extent a certain track is acoustic or not. 
 
 On the left we can see the acousticness of both the summer playlist and the winter playlist compared to each other in a single histogram. 
@@ -87,17 +71,79 @@ On the x-axis the acousticness scale is displayed, and on the y-axis the amount 
 
 It is noticeable that for winter songs the acousticness is very diverse and can range anywhere from 0 to 1. On average however, winter songs are more acoustic than summer songs. These are mainly very non-acoustic, with over 80 of the 100 tracks having less than 0.25 on the acousticness-scale.
 
+**Keys**
+Blablabla
+
+**Tempi**
+Blablabla
+
 ### Visualizations
 
-Column 1
+![](https://i.imgur.com/MGy2OvK.png)
 
 ---------------------------------------
 
 Column 2
 
-### Discussion
+### Visualizations
 
-Column 1
+```{r}
+library(tidyverse)
+library(spotifyr)
+library(compmus)
+
+summer <-
+  get_playlist_audio_features(
+    "Summer '22",
+    "37i9dQZF1DXcx1szy2g67M"
+  ) %>%
+  slice(1:30) %>%
+  add_audio_analysis()
+winter <-
+  get_playlist_audio_features(
+    "The Winter Chill",
+    "37i9dQZF1DX5tKipVBa9Hc"
+  ) %>%
+  slice(1:30) %>%
+  add_audio_analysis()
+seasons <-
+  summer %>%
+  mutate(genre = "Summer") %>%
+  bind_rows(winter %>% mutate(genre = "Winter"))
+
+seasons %>%
+  mutate(
+    timbre =
+      map(
+        segments,
+        compmus_summarise,
+        timbre,
+        method = "mean"
+      )
+  ) %>%
+  select(genre, timbre) %>%
+  compmus_gather_timbre() %>%
+  ggplot(aes(x = basis, y = value, fill = genre)) +
+  geom_boxplot() +
+  scale_fill_viridis_d() +
+  labs(x = "Spotify Timbre Coefficients", y = "", fill = "Genre")
+```
+
+---------------------------------------
+
+Column 2
+
+### **Keygram and Tempogram** - a continuation on the key and tempo histograms for a specific track 
+
+![](https://i.imgur.com/WHh96SD.jpg)
+
+---------------------------------------
+
+Column 2
+
+### **Classifier** - Can we use the data to make predictions about songs and whether they are summer or winter tracks?
+
+![](https://i.imgur.com/itPcQoD.png)
 
 ---------------------------------------
 

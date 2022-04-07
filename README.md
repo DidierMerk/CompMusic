@@ -8,6 +8,9 @@ If you came here looking for the portfolio, please go to: https://didiermerk.git
 In the clustering2.py file you can find the Python code for the machine learning algorithm.
 
 Info:
+
 Name: Didier Merk
+
 Student Number: 11037172
+
 email: didier.merk@gmail.com

@@ -30,7 +30,7 @@ Winter songs are hypothesized to be slower, and more melancholic (less happy) th
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcx1szy2g67M?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 
-### **Happiness** - Looking into whether summer songs are happier than winter songs
+### **Happiness** - A look into whether summer songs are happier than winter songs
 
 ```{r}
 library(tidyverse)
@@ -88,15 +88,19 @@ The third histogram displays the different tempo of the tracks on both playlists
 
 Although the average of both playlists are pretty close together (126bpm for summer and 118 for winter), the histogram is still pretty insightful, since it shows the difference in the distribution of the two playlists.
 
-### Visualizations
+### **Keygram and Tempogram** - A continuation on the key and tempo histograms for a specific track 
 
 ![](https://i.imgur.com/MGy2OvK.png)
 
 ---------------------------------------
 
-Column 2
+On the left we have both a keygram and a tempogram for the song "[Don't Break the Heart](https://open.spotify.com/track/4tS2pyUXiaTjHK7vCBomyF?si=988238cd200a4909)" by Tom Grennan. This song was chosen due to it having one of the highest valences in the summer playlist, and being a song that many people would classify as an outright summer song. 
 
-### Visualizations
+The parts for the keygram are segmented by Spotify, which gave the most optimal results. The normalisation used is the Euclidean and the cosine distance function is used.The three chorusses at around 50 seconds, 120 secons and 170 seconds are fairly visible aswell.
+
+The tempogram is non cyclic and very clearly shows that the song is constantly around the 122/123 beats per minute, which is correct!
+
+### **Spotify Timbre Coefficients** - Visualizing how the spotify timbre coefficients differ between the two different playlists
 
 ```{r}
 library(tidyverse)
@@ -144,13 +148,21 @@ seasons %>%
 
 Column 2
 
-### **Keygram and Tempogram** - a continuation on the key and tempo histograms for a specific track 
+### **Chroma and Timbre features** - a look at the self-similarity matrices for the Tom Grennan song discussed earlier.
 
 ![](https://i.imgur.com/WHh96SD.jpg)
 
 ---------------------------------------
 
-Column 2
+In order to further understand the structure of the 'Don't Break the Heart' track by Tom Grennan, the two self-similarity matrices on the left were constructed. 
+
+Both of the segments are at the bar-level. The matrix on the left is based on the chroma (or pitch) and uses the Manhattan normalisation and Aitchison distance method. The choruses are again visible, but less clear than before.
+
+The right matrix is based on the timbre features and used the Euclidean normalisation and cosine distance function. Here the patterns are a lot more visible. The three choruses are clear, and the change after the first chorus is visible aswell. 
+
+
+
+
 
 ### **Classifier** - Can we use the data to make predictions about songs and whether they are summer or winter tracks?
 
@@ -168,20 +180,24 @@ The histograms in the beginning and the timbre coefficients showed that there is
 
 In the visualization the performance of the K-Nearest Neighbour algorithm is displayed. After running a 5-fold cross validation, the accuracy was **81%**. This means that based on these two playlists, it is actually possible to make a accurate distinction between summer and winter tracks, based on the three chosen features. 
 
-### Discussion
+### **The Conclusion** - A short look back on the research and its findings, with recommendations and improvements for the future
 
-**Conclusion**
+**Conclusion and Discussion**
 
+The first analysis showed that there is a significant difference between the 'happiness' of songs that are considered to be summer songs, and songs that are considered to be winter songs. Summer songs have both a higher valance and higher energy, which are reasonable features to describe a songs happiness. In future research, it could be tested whether other features that could mean happiness, such as loudness or danceability, have the same findings.
 
----------------------------------------
+Looking at the acousticness, it was seen that winter songs have an almost uniform acousticness distribution, whereas summer tracks almost exclusively have a low acousticness, as was hypothesized. 
 
-Column 2
+There is a small difference in the distribution of tempo in winter and summer songs, where summer songs have a slightly higher average tempo but a less uniform distribution. The difference in keys was unsignificant.
 
-### Literature
+The keygram showed the choruses quite clearly, but there wasn't much other information in there that was accurately predicted. The tempogram very clearly showed the number of beats per minute throughout the whole song however.
+
+Spotify timbre coefficients
+
+From the classifier it can be concluded that acousticness, valence and energy are 3 features that can help to accurately classify a track as either a summer track or a winter track. This research was only based on the two official spotify tracks however, in further research it would be recommended to test the model on other playlists and research if it could classify songs from outside these spotify playlist correctly aswell.
+
+### **Literature**
 
 Column 1
 
----------------------------------------
-
-Column 2
 

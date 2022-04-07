@@ -62,7 +62,10 @@ In the figure on the left we can see for every track in the playlist where they 
 
 ---------------------------------------
 
+_note:_ The goal was to make this page interactive, and let the user select which feature to show on this page. This worked, but took very long computationally, which is why it was decided to just place all histograms in picture format next to each other on this page. 
+
 **Acousticness**
+
 When picturing a song that suits the winter, usually people picture a more melancholic song, with an acoustic guitar or piano and slow vocals. A feature that best measures this, is the acousticness feature, which measures to what extent a certain track is acoustic or not. 
 
 On the left we can see the acousticness of both the summer playlist and the winter playlist compared to each other in a single histogram. 
@@ -72,10 +75,16 @@ On the x-axis the acousticness scale is displayed, and on the y-axis the amount 
 It is noticeable that for winter songs the acousticness is very diverse and can range anywhere from 0 to 1. On average however, winter songs are more acoustic than summer songs. These are mainly very non-acoustic, with over 80 of the 100 tracks having less than 0.25 on the acousticness-scale.
 
 **Keys**
-Blablabla
+
+Besides acousticness it is possible to generate a histogram that demonstrates the keys of the tracks in the two different playlists. With on the x-axis the keys (translated to numerical from actual key values), and on the y-axis the count. 
+
+The two histograms for the summer and winter playlists are quite comparable in terms of key, with the only notable outlier being that there are no summer songs with the 'number 3'-key, which is the D# (or Eb). 
 
 **Tempi**
-Blablabla
+
+The third histogram displays the different tempo of the tracks on both playlists. It is noticeable that once again for winter songs the histogram is more spread out than for summer songs. Most summer songs are around the 128bpm region, and especially when looking at the lower tempo songs the summer songs get significantly less common. 
+
+Although the average of both playlists are pretty close together (126bpm for summer and 118 for winter), the histogram is still pretty insightful, since it shows the difference in the distribution of the two playlists.
 
 ### Visualizations
 

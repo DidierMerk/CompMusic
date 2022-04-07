@@ -5,9 +5,9 @@ In this file are the documents that run the portfolio for computational musicolo
 
 If you came here looking for the portfolio, please go to: https://didiermerk.github.io/CompMusic/
 
-In the clustering2.py file you can find the Python code for the machine learning algorithm.
+In the clustering2.py file you can find the Python code for the machine learning algorithm, the music_data.csv file contains the data.
 
-Info:
+**Info:**
 
 Name: Didier Merk
 
